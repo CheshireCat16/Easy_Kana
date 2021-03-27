@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    // Used to keep track of the current view - main or kana study
     @State var showMainView: Bool = true
-    @State var hiragana: Bool = true
+    // Used to track whether selected study is hiragana or katakana
+    @State var show_hiragana: Bool = true
     
     var body: some View {
         if showMainView {
@@ -25,7 +27,7 @@ struct ContentView: View {
                         .padding(.vertical)
                 Button(action: {
                     self.showMainView = false
-                    self.hiragana = true
+                    self.show_hiragana = true
                 })
                 {
                     Text("ひらがな - Hiragana")
@@ -38,7 +40,7 @@ struct ContentView: View {
                 }
                 Button(action: {
                     self.showMainView = false
-                    self.hiragana = false
+                    self.show_hiragana = false
                 }){
                     Text("カタカナ - Katakana")
                         .font(.title)
@@ -53,7 +55,7 @@ struct ContentView: View {
 
         }
         else {
-            KanaView(hiragana: self.$hiragana)
+            KanaView(show_hiragana: self.$show_hiragana)
             
         }
     }
