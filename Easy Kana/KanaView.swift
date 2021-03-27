@@ -13,13 +13,13 @@ struct KanaView: View {
     var body: some View {
         if show_hiragana {
             Text(hiraganas.randomElement()!.get_kana())
-                .font(.largeTitle)
+                .font(.system(size: 100))
                 .multilineTextAlignment(.center)
                 .scaledToFill()
         }
         else{
             Text(katakanas.randomElement()!.get_kana())
-                .font(.largeTitle)
+                .font(.system(size: 100))
                 .multilineTextAlignment(.center)
                 .scaledToFill()
         }

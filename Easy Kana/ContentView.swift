@@ -14,6 +14,7 @@ struct ContentView: View {
     @State var show_hiragana: Bool = true
     
     var body: some View {
+        // Shows the main page if showMainView is true
         if showMainView {
             VStack(alignment: .center) {
                     Text("Welcome to Easy Kana")
@@ -54,9 +55,9 @@ struct ContentView: View {
             .padding(.bottom)
 
         }
+        // Shows KanaView with the appropriate kana type
         else {
             KanaView(show_hiragana: self.$show_hiragana)
-            
         }
     }
 }

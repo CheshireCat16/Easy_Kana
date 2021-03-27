@@ -15,12 +15,12 @@ var katakanas: [Kana] = get_katakana()
 private func get_hiragana() -> [Kana]{
     var hiragana_list: [Kana] = []
     
-    hiragana_list.append(Kana(kana: "あ"))
-    hiragana_list.append(Kana(kana: "い"))
-    hiragana_list.append(Kana(kana: "う"))
-    hiragana_list.append(Kana(kana: "え"))
-    hiragana_list.append(Kana(kana: "お"))
-    hiragana_list.append(Kana(kana: "か"))
+    hiragana_list.append(Kana(kana: "ある"))
+    hiragana_list.append(Kana(kana: "いま"))
+    hiragana_list.append(Kana(kana: "うし"))
+    hiragana_list.append(Kana(kana: "えび"))
+    hiragana_list.append(Kana(kana: "おく"))
+    hiragana_list.append(Kana(kana: "かも"))
     
     return hiragana_list
 
@@ -31,12 +31,12 @@ private func get_hiragana() -> [Kana]{
 private func get_katakana() -> [Kana]{
     var hiragana_list: [Kana] = []
     
-    hiragana_list.append(Kana(kana: "ア"))
-    hiragana_list.append(Kana(kana: "イ"))
-    hiragana_list.append(Kana(kana: "ウ"))
-    hiragana_list.append(Kana(kana: "エ"))
-    hiragana_list.append(Kana(kana: "オ"))
-    hiragana_list.append(Kana(kana: "カ"))
+    hiragana_list.append(Kana(kana: "アル"))
+    hiragana_list.append(Kana(kana: "イカ"))
+    hiragana_list.append(Kana(kana: "ウマ"))
+    hiragana_list.append(Kana(kana: "エリ"))
+    hiragana_list.append(Kana(kana: "オフ"))
+    hiragana_list.append(Kana(kana: "カバ"))
     
     return hiragana_list
 
