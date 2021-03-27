@@ -46,5 +46,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>The app uses your microphone to perform speech recognition to help you learn the kana.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>The app needs to use the microphones in order to get audio for speech recognition.</string>
 </dict>
 </plist>

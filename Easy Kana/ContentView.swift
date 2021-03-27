@@ -53,7 +53,6 @@ struct ContentView: View {
                 }
             }
             .padding(.bottom)
-
         }
         // Shows KanaView with the appropriate kana type
         else {
