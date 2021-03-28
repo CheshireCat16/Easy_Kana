@@ -1,9 +1,9 @@
+//  struct for speech recognition, customized for Japanese language
+//  and recording and playing audio.
+//  This file is based of the Apple developer tutorial at https://developer.apple.com/tutorials/app-dev-training/transcribing-speech-to-text
 //
 //  SpeechRecognizer.swift
 //  Easy Kana
-//
-//  Created by administrator on 3/27/21.
-//  This file is based of the Apple developer tutorial at https://developer.apple.com/tutorials/app-dev-training/transcribing-speech-to-text
 
 import AVFoundation
 import Foundation

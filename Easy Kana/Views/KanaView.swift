@@ -1,3 +1,6 @@
+//  The KanaView file contains the main view where Kana
+//  are displayed. It also includes logic to record the users
+//  voice.
 //
 //  KanaView.swift
 //  Easy Kana

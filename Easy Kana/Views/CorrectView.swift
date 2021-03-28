@@ -1,9 +1,6 @@
-//
+//  Shows results when the user is correct. Does not play audio.
 //  CorrectView.swift
 //  Easy Kana
-//
-//  Created by John Cheshire on 3/27/21.
-//
 
 import SwiftUI
 

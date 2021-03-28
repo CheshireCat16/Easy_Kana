@@ -1,9 +1,8 @@
+//  ContentView shows the initial screen and process user input
+//  to move to the next screen.
 //
 //  ContentView.swift
 //  Easy Kana
-//
-//  Created by administrator on 3/27/21.
-//
 
 import SwiftUI
 
@@ -23,7 +22,7 @@ struct ContentView: View {
                     .multilineTextAlignment(.center)
                     .padding(.all)
                 Spacer()
-                Text("カナ")
+                Text("Easy\nカナ")
                         .font(.system(size: 100))
                 Spacer()
                 Text("What would you like to study?")

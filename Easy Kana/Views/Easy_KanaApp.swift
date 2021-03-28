@@ -1,9 +1,7 @@
+//  Basic start of the app
 //
 //  Easy_KanaApp.swift
 //  Easy Kana
-//
-//  Created by administrator on 3/27/21.
-//
 
 import SwiftUI
 

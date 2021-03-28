@@ -1,3 +1,5 @@
+//  Displays the fact that the result was incorrect. Also
+//  plays the correct pronunciation.
 //
 //  IncorrectView.swift
 //  Easy Kana

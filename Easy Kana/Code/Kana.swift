@@ -1,9 +1,8 @@
+//  Holds global variables that are accessed by many views.
+//  Also contains key list of kana as well as associated attributes.
 //
 //  Kana.swift
 //  Easy Kana
-//
-//  Created by  John Cheshire on 3/27/21.
-//
 
 import Foundation
 
@@ -39,25 +38,25 @@ private func get_hiragana() -> [Kana]{
 
 // Get a list of katakana
 private func get_katakana() -> [Kana]{
-    var hiragana_list: [Kana] = []
+    var katakana_list: [Kana] = []
     
-    hiragana_list.append(Kana(kana: "アル", answerKey: ["ある"]))
-    hiragana_list.append(Kana(kana: "イカ", answerKey: ["以下", "イカ", "いか", "１日", "1日"]))
-    hiragana_list.append(Kana(kana: "ウマ", answerKey: ["うま", "馬"]))
-    hiragana_list.append(Kana(kana: "エリ", answerKey: ["えり", "エリ", "ヘリ"]))
-    hiragana_list.append(Kana(kana: "オフ", answerKey: ["オフ", "今"]))
-    hiragana_list.append(Kana(kana: "カバ", answerKey: ["カバ", "かば", "カバー"]))
-    hiragana_list.append(Kana(kana: "キリ", answerKey: ["きり", "霧", "切り"]))
-    hiragana_list.append(Kana(kana: "クモ", answerKey: ["くも", "雲", "蜘蛛"]))
-    hiragana_list.append(Kana(kana: "ケル", answerKey: ["ける", "蹴る"]))
-    hiragana_list.append(Kana(kana: "コドモ", answerKey: ["こども", "子供"]))
-    hiragana_list.append(Kana(kana: "サメ", answerKey: ["さめ", "サメ", "鮫"]))
-    hiragana_list.append(Kana(kana: "シル", answerKey: ["しる", "汁", "知る", "シール"]))
-    hiragana_list.append(Kana(kana: "セナカ", answerKey: ["せなか", "背中"]))
-    hiragana_list.append(Kana(kana: "ソレ", answerKey: ["それ", "其れ", "Stredny"]))
-    hiragana_list.append(Kana(kana: "ナニ", answerKey: ["なに", "何"]))
+    katakana_list.append(Kana(kana: "アル", answerKey: ["ある"]))
+    katakana_list.append(Kana(kana: "イカ", answerKey: ["以下", "イカ", "いか", "１日", "1日"]))
+    katakana_list.append(Kana(kana: "ウマ", answerKey: ["うま", "馬"]))
+    katakana_list.append(Kana(kana: "エリ", answerKey: ["えり", "エリ", "ヘリ"]))
+    katakana_list.append(Kana(kana: "オフ", answerKey: ["オフ", "今"]))
+    katakana_list.append(Kana(kana: "カバ", answerKey: ["カバ", "かば", "カバー"]))
+    katakana_list.append(Kana(kana: "キリ", answerKey: ["きり", "霧", "切り"]))
+    katakana_list.append(Kana(kana: "クモ", answerKey: ["くも", "雲", "蜘蛛"]))
+    katakana_list.append(Kana(kana: "ケル", answerKey: ["ける", "蹴る"]))
+    katakana_list.append(Kana(kana: "コドモ", answerKey: ["こども", "子供"]))
+    katakana_list.append(Kana(kana: "サメ", answerKey: ["さめ", "サメ", "鮫"]))
+    katakana_list.append(Kana(kana: "シル", answerKey: ["しる", "汁", "知る", "シール"]))
+    katakana_list.append(Kana(kana: "セナカ", answerKey: ["せなか", "背中"]))
+    katakana_list.append(Kana(kana: "ソレ", answerKey: ["それ", "其れ", "Stredny"]))
+    katakana_list.append(Kana(kana: "ナニ", answerKey: ["なに", "何"]))
     
-    return hiragana_list
+    return katakana_list
     
 }
 
