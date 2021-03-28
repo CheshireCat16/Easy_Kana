@@ -105,13 +105,8 @@
 		C32FC0C1260F41BD0050D062 /* Easy Kana */ = {
 			isa = PBXGroup;
 			children = (
-				C32FC0C2260F41BD0050D062 /* Easy_KanaApp.swift */,
-				C32FC0FD260F5CFB0050D062 /* Kana.swift */,
-				C32FC0C4260F41BD0050D062 /* ContentView.swift */,
-				C32FC0F8260F54820050D062 /* KanaView.swift */,
-				C360ABFA26100D4C00989941 /* IncorrectView.swift */,
-				C360ABFF261011BF00989941 /* SpeechRecognizer.swift */,
-				C360ABF526100C8000989941 /* CorrectView.swift */,
+				C360AC052610A92400989941 /* Code */,
+				C360AC042610A8F500989941 /* Views */,
 				C32FC0C6260F41BE0050D062 /* Assets.xcassets */,
 				C32FC0CB260F41BE0050D062 /* Info.plist */,
 				C32FC0C8260F41BE0050D062 /* Preview Content */,
@@ -143,6 +138,27 @@
 				C32FC0E1260F41BE0050D062 /* Info.plist */,
 			);
 			path = "Easy KanaUITests";
+			sourceTree = "<group>";
+		};
+		C360AC042610A8F500989941 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C32FC0C2260F41BD0050D062 /* Easy_KanaApp.swift */,
+				C360ABFA26100D4C00989941 /* IncorrectView.swift */,
+				C360ABF526100C8000989941 /* CorrectView.swift */,
+				C32FC0C4260F41BD0050D062 /* ContentView.swift */,
+				C32FC0F8260F54820050D062 /* KanaView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C360AC052610A92400989941 /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				C32FC0FD260F5CFB0050D062 /* Kana.swift */,
+				C360ABFF261011BF00989941 /* SpeechRecognizer.swift */,
+			);
+			path = Code;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

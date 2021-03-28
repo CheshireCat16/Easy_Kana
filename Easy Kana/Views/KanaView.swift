@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct KanaView: View {
     @Binding var show_hiragana: Bool
     @State var answer = 0
     @State private var recording = ""
+    @State private var recordingFinished: Bool = false
     private let speechRecognizer = SpeechRecognizer()
-    
     
     
     var body: some View {
@@ -40,19 +41,7 @@ struct KanaView: View {
                         self.answer = 1
                     })
                     {
-                        Text("Correct")
-                            .font(.title)
-                            .padding(.all)
-                            .background(Color.red)
-                            .foregroundColor(.black)
-                            .padding(10)
-                            .cornerRadius(40)
-                    }
-                
-                    Button(action: {
-                        self.answer = 2
-                    }){
-                        Text("Incorrect")
+                        Text("Check Answer")
                             .font(.title)
                             .padding(.all)
                             .background(Color.red)
@@ -63,17 +52,19 @@ struct KanaView: View {
                 }
             }
             .onAppear{
-            speechRecognizer.record(to: $recording)
+                speechRecognizer.record(to: $recording)
+                
                 Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
                     speechRecognizer.stopRecording()
+                    recordingFinished = true
                 }
             }
         }
-        else if (answer == 1) {
+        else if (recordingFinished == true && test_recording(kana: last_kana, recording: recording)) {
             CorrectView(show_hiragana: $show_hiragana, recording: recording)
         }
-        else if (answer == 2) {
-            IncorrectView(show_hiragana: $show_hiragana)
+        else if (recordingFinished == true) {
+            IncorrectView(show_hiragana: $show_hiragana, recording: recording)
         }
     }
 

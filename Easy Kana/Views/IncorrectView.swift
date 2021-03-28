@@ -10,6 +10,7 @@ import SwiftUI
 struct IncorrectView: View {
     @Binding var show_hiragana: Bool
     @State var show_next: Bool = false
+    var recording: String
     
     var body: some View {
  
@@ -26,7 +27,7 @@ struct IncorrectView: View {
                     self.show_next = true
                 })
                 {
-                    Text("Next")
+                    Text(recording)
                         .font(.title)
                         .padding(.all)
                         .background(Color.red)
@@ -44,6 +45,6 @@ struct IncorrectView: View {
 
 struct IncorrectView_Previews: PreviewProvider {
     static var previews: some View {
-        IncorrectView(show_hiragana: .constant(true))
+        IncorrectView(show_hiragana: .constant(true), recording: "Next")
     }
 }

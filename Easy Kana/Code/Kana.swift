@@ -10,18 +10,18 @@ import Foundation
 // These variables hold the list of hiragana and katakana to be studied
 var hiraganas: [Kana] = get_hiragana()
 var katakanas: [Kana] = get_katakana()
-var last_kana: Kana = Kana(kana: "")
+var last_kana: Kana = Kana(kana: "", answerKey: [])
 
 // Get alist of hiragana
 private func get_hiragana() -> [Kana]{
     var hiragana_list: [Kana] = []
     
-    hiragana_list.append(Kana(kana: "ある"))
-    hiragana_list.append(Kana(kana: "いま"))
-    hiragana_list.append(Kana(kana: "うし"))
-    hiragana_list.append(Kana(kana: "えび"))
-    hiragana_list.append(Kana(kana: "おく"))
-    hiragana_list.append(Kana(kana: "かも"))
+    hiragana_list.append(Kana(kana: "ある", answerKey: ["ある"]))
+    hiragana_list.append(Kana(kana: "いま", answerKey: ["いま", "今"]))
+    hiragana_list.append(Kana(kana: "うし", answerKey: ["うし", "牛"]))
+    hiragana_list.append(Kana(kana: "えび", answerKey: ["えび"]))
+    hiragana_list.append(Kana(kana: "おく", answerKey: ["おく", "奥", "屋"]))
+    hiragana_list.append(Kana(kana: "かも", answerKey: ["かも", "カモ", "鴨"]))
     
     return hiragana_list
 
@@ -32,16 +32,25 @@ private func get_hiragana() -> [Kana]{
 private func get_katakana() -> [Kana]{
     var hiragana_list: [Kana] = []
     
-    hiragana_list.append(Kana(kana: "アル"))
-    hiragana_list.append(Kana(kana: "イカ"))
-    hiragana_list.append(Kana(kana: "ウマ"))
-    hiragana_list.append(Kana(kana: "エリ"))
-    hiragana_list.append(Kana(kana: "オフ"))
-    hiragana_list.append(Kana(kana: "カバ"))
+    hiragana_list.append(Kana(kana: "アル", answerKey: ["ある"]))
+    hiragana_list.append(Kana(kana: "イカ", answerKey: ["以下", "イカ", "いか", "１日"]))
+    hiragana_list.append(Kana(kana: "ウマ", answerKey: ["うま", "馬"]))
+    hiragana_list.append(Kana(kana: "エリ", answerKey: ["えり", "エリ"]))
+    hiragana_list.append(Kana(kana: "オフ", answerKey: ["オフ", "今"]))
+    hiragana_list.append(Kana(kana: "カバ", answerKey: ["カバ", "かば", "カバー"]))
     
     return hiragana_list
-
     
+}
+
+// Test a recording against an answer key - return true or false
+func test_recording(kana: Kana, recording: String) -> Bool {
+    for answer in kana.get_AnswerKey() {
+        if (recording == answer) {
+            return true
+        }
+    }
+    return false
 }
 
 // This gets a random hiragana
@@ -63,12 +72,14 @@ class Kana {
     private var kana: String
     private var rightCount: Int
     private var wrongCount: Int
+    private var answerKey: [String]
     
     // Initializes the Kana object and sets right and wrong count to zero
-    init(kana: String){
+    init(kana: String, answerKey: [String]){
         self.kana = kana
         self.rightCount = 0
         self.wrongCount = 0
+        self.answerKey = answerKey
     }
     
     // Gets the kana
@@ -79,6 +90,11 @@ class Kana {
     // Gets the number of time an item has been answered correctly
     func get_rightCount() -> Int {
         return self.rightCount
+    }
+    
+    // Gets the answer key
+    func get_AnswerKey() -> [String] {
+        return self.answerKey
     }
     
     // Gets the number of time an item has been answered correctly
