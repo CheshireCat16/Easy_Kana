@@ -23,3 +23,6 @@ I learned how SwiftUI is used to build basic iOS apps. I also had my first expos
 
 ## What's next for Easy Kana
 There are a few things left to do to extend the functionality of the app. First, I need to build out the remainder of the kana symbols. Next, I plan to add sounds to play the reading of the kana after it is incorrectly pronounced.
+
+### Project Resources
+[Apple Transcribing Speech to Text Tutorial](https://developer.apple.com/tutorials/app-dev-training/transcribing-speech-to-text)
