@@ -19,7 +19,7 @@ private func get_hiragana() -> [Kana]{
     hiragana_list.append(Kana(kana: "ある", answerKey: ["ある"]))
     hiragana_list.append(Kana(kana: "いま", answerKey: ["いま", "今"]))
     hiragana_list.append(Kana(kana: "うし", answerKey: ["うし", "牛"]))
-    hiragana_list.append(Kana(kana: "えび", answerKey: ["えび"]))
+    hiragana_list.append(Kana(kana: "えび", answerKey: ["えび", "蛇"]))
     hiragana_list.append(Kana(kana: "おく", answerKey: ["おく", "奥", "屋"]))
     hiragana_list.append(Kana(kana: "かも", answerKey: ["かも", "カモ", "鴨"]))
     
@@ -35,7 +35,7 @@ private func get_katakana() -> [Kana]{
     hiragana_list.append(Kana(kana: "アル", answerKey: ["ある"]))
     hiragana_list.append(Kana(kana: "イカ", answerKey: ["以下", "イカ", "いか", "１日", "1日"]))
     hiragana_list.append(Kana(kana: "ウマ", answerKey: ["うま", "馬"]))
-    hiragana_list.append(Kana(kana: "エリ", answerKey: ["えり", "エリ"]))
+    hiragana_list.append(Kana(kana: "エリ", answerKey: ["えり", "エリ", "ヘリ"]))
     hiragana_list.append(Kana(kana: "オフ", answerKey: ["オフ", "今"]))
     hiragana_list.append(Kana(kana: "カバ", answerKey: ["カバ", "かば", "カバー"]))
     
