@@ -70,7 +70,7 @@ struct KanaView: View {
             }
         }
         else if (answer == 1) {
-            CorrectView(show_hiragana: $show_hiragana)
+            CorrectView(show_hiragana: $show_hiragana, recording: recording)
         }
         else if (answer == 2) {
             IncorrectView(show_hiragana: $show_hiragana)
