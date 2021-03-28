@@ -9,23 +9,62 @@ import SwiftUI
 
 struct KanaView: View {
     @Binding var show_hiragana: Bool
-    // This is used to track whether or not a question has been answered correctly
-    @State var correct = 0
+    @State var answer = 0
+    
     
     var body: some View {
-        if show_hiragana {
-            Text(hiraganas.randomElement()!.get_kana())
-                .font(.system(size: 100))
-                .multilineTextAlignment(.center)
-                .frame(height: 150)
-                .overlay(Circle().stroke(Color.green, lineWidth: 8))
+        if (answer == 0) {
+            
+        
+            VStack {
+                Spacer()
+                if show_hiragana {
+                    Text(get_random_hiragana().get_kana())
+                        .font(.system(size: 100))
+                        .multilineTextAlignment(.center)
+                        .frame(height: 150)
+                }
+                else{
+                    Text(get_random_katakana().get_kana())
+                        .font(.system(size: 100))
+                        .multilineTextAlignment(.center)
+                        .frame(height: 150)
+                        .scaledToFill()
+                }
+                Spacer()
+                HStack {
+                    Button(action: {
+                        self.answer = 1
+                    })
+                    {
+                        Text("Correct")
+                            .font(.title)
+                            .padding(.all)
+                            .background(Color.red)
+                            .foregroundColor(.black)
+                            .padding(10)
+                            .cornerRadius(40)
+                    }
+                
+                    Button(action: {
+                        self.answer = 2
+                    }){
+                        Text("Incorrect")
+                            .font(.title)
+                            .padding(.all)
+                            .background(Color.red)
+                            .foregroundColor(.black)
+                            .padding(10)
+                            .cornerRadius(40)
+                    }
+                }
+            }
         }
-        else{
-            Text(katakanas.randomElement()!.get_kana())
-                .font(.system(size: 100))
-                .multilineTextAlignment(.center)
-                .frame(height: 150)
-                .scaledToFill()
+        else if (answer == 1) {
+            CorrectView(show_hiragana: $show_hiragana)
+        }
+        else if (answer == 2) {
+            IncorrectView(show_hiragana: $show_hiragana)
         }
     }
 }

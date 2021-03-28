@@ -15,6 +15,8 @@
 		C32FC0E0260F41BE0050D062 /* Easy_KanaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FC0DF260F41BE0050D062 /* Easy_KanaUITests.swift */; };
 		C32FC0F9260F54820050D062 /* KanaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FC0F8260F54820050D062 /* KanaView.swift */; };
 		C32FC0FE260F5CFB0050D062 /* Kana.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FC0FD260F5CFB0050D062 /* Kana.swift */; };
+		C360ABF626100C8000989941 /* CorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C360ABF526100C8000989941 /* CorrectView.swift */; };
+		C360ABFB26100D4C00989941 /* IncorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C360ABFA26100D4C00989941 /* IncorrectView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		C32FC0E1260F41BE0050D062 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C32FC0F8260F54820050D062 /* KanaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KanaView.swift; sourceTree = "<group>"; };
 		C32FC0FD260F5CFB0050D062 /* Kana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kana.swift; sourceTree = "<group>"; };
+		C360ABF526100C8000989941 /* CorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectView.swift; sourceTree = "<group>"; };
+		C360ABFA26100D4C00989941 /* IncorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncorrectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				C32FC0FD260F5CFB0050D062 /* Kana.swift */,
 				C32FC0C4260F41BD0050D062 /* ContentView.swift */,
 				C32FC0F8260F54820050D062 /* KanaView.swift */,
+				C360ABFA26100D4C00989941 /* IncorrectView.swift */,
+				C360ABF526100C8000989941 /* CorrectView.swift */,
 				C32FC0C6260F41BE0050D062 /* Assets.xcassets */,
 				C32FC0CB260F41BE0050D062 /* Info.plist */,
 				C32FC0C8260F41BE0050D062 /* Preview Content */,
@@ -269,6 +275,8 @@
 				C32FC0C5260F41BD0050D062 /* ContentView.swift in Sources */,
 				C32FC0F9260F54820050D062 /* KanaView.swift in Sources */,
 				C32FC0C3260F41BD0050D062 /* Easy_KanaApp.swift in Sources */,
+				C360ABFB26100D4C00989941 /* IncorrectView.swift in Sources */,
+				C360ABF626100C8000989941 /* CorrectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@ import Foundation
 // These variables hold the list of hiragana and katakana to be studied
 var hiraganas: [Kana] = get_hiragana()
 var katakanas: [Kana] = get_katakana()
+var last_kana: Kana = Kana(kana: "")
 
 // Get alist of hiragana
 private func get_hiragana() -> [Kana]{
@@ -43,6 +44,19 @@ private func get_katakana() -> [Kana]{
     
 }
 
+// This gets a random hiragana
+func get_random_hiragana() -> Kana {
+    last_kana = hiraganas.randomElement()!
+    return last_kana
+    
+}
+
+// This gets a random katakana
+func get_random_katakana() -> Kana {
+    last_kana = katakanas.randomElement()!
+    return last_kana
+    
+}
 // This class holds each hiragana and katakana as well as keeps track of how many times
 // it has been gotten wrong and write
 class Kana {
