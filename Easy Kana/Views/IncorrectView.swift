@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct IncorrectView: View {
     @Binding var show_hiragana: Bool
@@ -47,7 +48,7 @@ struct IncorrectView: View {
                     self.show_next = true
                 })
                 {
-                    Text(recording)
+                    Text("Next")
                         .font(.title)
                         .padding(.all)
                         .background(Color.red)
@@ -55,6 +56,13 @@ struct IncorrectView: View {
                         .padding(10)
                         .cornerRadius(40)
                 }
+            }
+            .onAppear {
+                let correctPron = AVSpeechUtterance(string: last_kana.get_kana())
+                correctPron.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+                correctPron.volume = 1.0
+                let synthesizer = AVSpeechSynthesizer()
+                synthesizer.speak(correctPron)
             }
         }
         else {

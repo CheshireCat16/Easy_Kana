@@ -56,7 +56,7 @@ struct SpeechRecognizer {
                 relay(speech, message: "Booting audio subsystem")
 
                 let audioSession = AVAudioSession.sharedInstance()
-                try audioSession.setCategory(.record, mode: .measurement, options: .duckOthers)
+                try audioSession.setCategory(.playAndRecord, mode: .measurement, options: .defaultToSpeaker)
                 try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
                 let inputNode = audioEngine.inputNode
                 relay(speech, message: "Found input node")
