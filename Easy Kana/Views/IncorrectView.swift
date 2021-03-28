@@ -47,7 +47,7 @@ struct IncorrectView: View {
                     self.show_next = true
                 })
                 {
-                    Text("Show Next")
+                    Text(recording)
                         .font(.title)
                         .padding(.all)
                         .background(Color.red)

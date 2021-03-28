@@ -16,12 +16,21 @@ var last_kana: Kana = Kana(kana: "", answerKey: [])
 private func get_hiragana() -> [Kana]{
     var hiragana_list: [Kana] = []
     
-    hiragana_list.append(Kana(kana: "ある", answerKey: ["ある"]))
+    hiragana_list.append(Kana(kana: "ある", answerKey: ["ある", "春"]))
     hiragana_list.append(Kana(kana: "いま", answerKey: ["いま", "今"]))
     hiragana_list.append(Kana(kana: "うし", answerKey: ["うし", "牛"]))
     hiragana_list.append(Kana(kana: "えび", answerKey: ["えび", "蛇"]))
     hiragana_list.append(Kana(kana: "おく", answerKey: ["おく", "奥", "屋"]))
-    hiragana_list.append(Kana(kana: "かも", answerKey: ["かも", "カモ", "鴨"]))
+    hiragana_list.append(Kana(kana: "かも", answerKey: ["かも", "カモ"]))
+    hiragana_list.append(Kana(kana: "きり", answerKey: ["きり", "霧", "切り"]))
+    hiragana_list.append(Kana(kana: "くも", answerKey: ["くも", "雲", "蜘蛛"]))
+    hiragana_list.append(Kana(kana: "ける", answerKey: ["ける", "蹴る"]))
+    hiragana_list.append(Kana(kana: "こども", answerKey: ["こども", "子供"]))
+    hiragana_list.append(Kana(kana: "さめ", answerKey: ["さめ", "サメ", "鮫"]))
+    hiragana_list.append(Kana(kana: "しる", answerKey: ["しる", "汁", "知る", "シール"]))
+    hiragana_list.append(Kana(kana: "せなか", answerKey: ["せなか", "背中"]))
+    hiragana_list.append(Kana(kana: "それ", answerKey: ["それ", "其れ", "Stredny"]))
+    hiragana_list.append(Kana(kana: "なに", answerKey: ["なに", "何"]))
     
     return hiragana_list
 
@@ -38,6 +47,15 @@ private func get_katakana() -> [Kana]{
     hiragana_list.append(Kana(kana: "エリ", answerKey: ["えり", "エリ", "ヘリ"]))
     hiragana_list.append(Kana(kana: "オフ", answerKey: ["オフ", "今"]))
     hiragana_list.append(Kana(kana: "カバ", answerKey: ["カバ", "かば", "カバー"]))
+    hiragana_list.append(Kana(kana: "キリ", answerKey: ["きり", "霧", "切り"]))
+    hiragana_list.append(Kana(kana: "クモ", answerKey: ["くも", "雲", "蜘蛛"]))
+    hiragana_list.append(Kana(kana: "ケル", answerKey: ["ける", "蹴る"]))
+    hiragana_list.append(Kana(kana: "コドモ", answerKey: ["こども", "子供"]))
+    hiragana_list.append(Kana(kana: "サメ", answerKey: ["さめ", "サメ", "鮫"]))
+    hiragana_list.append(Kana(kana: "シル", answerKey: ["しる", "汁", "知る", "シール"]))
+    hiragana_list.append(Kana(kana: "セナカ", answerKey: ["せなか", "背中"]))
+    hiragana_list.append(Kana(kana: "ソレ", answerKey: ["それ", "其れ", "Stredny"]))
+    hiragana_list.append(Kana(kana: "ナニ", answerKey: ["なに", "何"]))
     
     return hiragana_list
     
