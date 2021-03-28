@@ -42,7 +42,7 @@ struct IncorrectView: View {
                     .font(.system(size: 100))
                     .multilineTextAlignment(.center)
                     .frame(height: 150)
-                    .overlay(Circle().stroke(Color.red, lineWidth: 8))
+                    .overlay(Rectangle().stroke(Color.red, lineWidth: 8))
                 Spacer()
                 Button(action: {
                     self.show_next = true
@@ -60,7 +60,7 @@ struct IncorrectView: View {
             .onAppear {
                 let correctPron = AVSpeechUtterance(string: last_kana.get_kana())
                 correctPron.voice = AVSpeechSynthesisVoice(language: "ja-JP")
-                correctPron.volume = 1.0
+                // correctPron.rate = 0.08
                 let synthesizer = AVSpeechSynthesizer()
                 synthesizer.speak(correctPron)
             }

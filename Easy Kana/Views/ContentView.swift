@@ -17,13 +17,16 @@ struct ContentView: View {
         // Shows the main page if showMainView is true
         if showMainView {
             VStack(alignment: .center) {
-                    Text("Welcome to Easy Kana")
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        .multilineTextAlignment(.center)
-                        .padding(.all)
-                    Spacer()
-                    Text("What would you like to study?")
+                Text("Welcome to Easy Kana")
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                    .multilineTextAlignment(.center)
+                    .padding(.all)
+                Spacer()
+                Text("カナ")
+                        .font(.system(size: 100))
+                Spacer()
+                Text("What would you like to study?")
                         .font(.title)
                         .padding(.vertical)
                 Button(action: {

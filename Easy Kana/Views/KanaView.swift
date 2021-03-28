@@ -60,6 +60,7 @@ struct KanaView: View {
                         .foregroundColor(.black)
                         .padding(10)
                         .cornerRadius(40)
+                        .overlay(RoundedRectangle(cornerRadius: 40.0).stroke(recordingColor, lineWidth: 6))
                 }
 
             }
