@@ -2,7 +2,7 @@
 //  KanaView.swift
 //  Easy Kana
 //
-//  Created by administrator on 3/27/21.
+//  Created by  John Cheshire on 3/27/21.
 //
 
 import SwiftUI
@@ -53,7 +53,7 @@ struct KanaView: View {
             .onAppear{
                 speechRecognizer.record(to: $recording)
                 recordingColor = Color.green
-                recordingText = "Record"
+                recordingText = "Recording"
                 Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
                     speechRecognizer.stopRecording()
                     recordingFinished = true

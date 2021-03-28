@@ -2,7 +2,7 @@
 //  CorrectView.swift
 //  Easy Kana
 //
-//  Created by administrator on 3/27/21.
+//  Created by John Cheshire on 3/27/21.
 //
 
 import SwiftUI

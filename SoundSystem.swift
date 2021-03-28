@@ -2,7 +2,7 @@
 //  SoundSystem.swift
 //  Easy Kana
 //
-//  Created by administrator on 3/28/21.
+//  Created by  John Cheshire on 3/28/21.
 //
 
 import AVFoundation
