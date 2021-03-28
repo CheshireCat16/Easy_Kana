@@ -33,7 +33,7 @@ private func get_katakana() -> [Kana]{
     var hiragana_list: [Kana] = []
     
     hiragana_list.append(Kana(kana: "アル", answerKey: ["ある"]))
-    hiragana_list.append(Kana(kana: "イカ", answerKey: ["以下", "イカ", "いか", "１日"]))
+    hiragana_list.append(Kana(kana: "イカ", answerKey: ["以下", "イカ", "いか", "１日", "1日"]))
     hiragana_list.append(Kana(kana: "ウマ", answerKey: ["うま", "馬"]))
     hiragana_list.append(Kana(kana: "エリ", answerKey: ["えり", "エリ"]))
     hiragana_list.append(Kana(kana: "オフ", answerKey: ["オフ", "今"]))

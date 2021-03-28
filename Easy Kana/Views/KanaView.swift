@@ -14,6 +14,9 @@ struct KanaView: View {
     @State private var recording = ""
     @State private var recordingFinished: Bool = false
     private let speechRecognizer = SpeechRecognizer()
+    @State var recordingText = "Preparing..."
+    @State var recordingColor = Color.red
+    
     
     
     var body: some View {
@@ -37,26 +40,27 @@ struct KanaView: View {
                 }
                 Spacer()
                 HStack {
-                    Button(action: {
-                        self.answer = 1
-                    })
-                    {
-                        Text("Check Answer")
-                            .font(.title)
-                            .padding(.all)
-                            .background(Color.red)
-                            .foregroundColor(.black)
-                            .padding(10)
-                            .cornerRadius(40)
-                    }
+                    Text(recordingText)
+                        .font(.title)
+                        .padding(.all)
+                        .background(recordingColor)
+                        .foregroundColor(.black)
+                        .padding(10)
+                        .cornerRadius(40)
                 }
+
             }
             .onAppear{
                 speechRecognizer.record(to: $recording)
-                
+                recordingColor = Color.green
+                recordingText = "Record"
                 Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
                     speechRecognizer.stopRecording()
                     recordingFinished = true
+                    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { timer in
+                        speechRecognizer.stopRecording()
+                    }
+                    self.answer = 1
                 }
             }
         }

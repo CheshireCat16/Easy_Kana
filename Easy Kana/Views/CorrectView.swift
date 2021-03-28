@@ -30,7 +30,7 @@ struct CorrectView: View {
                     Text(recording)
                         .font(.title)
                         .padding(.all)
-                        .background(Color.red)
+                        .background(Color.green)
                         .foregroundColor(.black)
                         .padding(10)
                         .cornerRadius(40)
