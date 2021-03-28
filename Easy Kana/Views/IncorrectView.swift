@@ -10,12 +10,32 @@ import SwiftUI
 struct IncorrectView: View {
     @Binding var show_hiragana: Bool
     @State var show_next: Bool = false
+    @State var returnHome = false
     var recording: String
+
     
     var body: some View {
  
-        if !(show_next) {
+        if (returnHome == true) {
+            ContentView()
+        }
+        
+        else if !(show_next) {
             VStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        self.returnHome = true
+                        self.show_next = true
+                    }) {
+                        Text("X")
+                            .font(.title)
+                            .foregroundColor(Color.gray)
+                            .padding(.horizontal)
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                            .padding(.top, 10)
+                    }
+                }
                 Spacer()
                 Text(last_kana.get_kana())
                     .font(.system(size: 100))
@@ -27,7 +47,7 @@ struct IncorrectView: View {
                     self.show_next = true
                 })
                 {
-                    Text(recording)
+                    Text("Show Next")
                         .font(.title)
                         .padding(.all)
                         .background(Color.red)

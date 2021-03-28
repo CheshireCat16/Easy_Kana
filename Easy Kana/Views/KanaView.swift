@@ -16,14 +16,27 @@ struct KanaView: View {
     private let speechRecognizer = SpeechRecognizer()
     @State var recordingText = "Preparing..."
     @State var recordingColor = Color.red
-    
+    @State var returnHome = false
     
     
     var body: some View {
         if (answer == 0) {
-            
-        
             VStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        self.returnHome = true
+                        self.answer = 5
+                    }) {
+                        Text("X")
+                            .font(.title)
+                            .foregroundColor(Color.gray)
+                            .padding(.horizontal)
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                            .padding(.top, 10)
+                    }
+                }
+
                 Spacer()
                 if show_hiragana {
                     Text(get_random_hiragana().get_kana())
@@ -63,6 +76,9 @@ struct KanaView: View {
                     self.answer = 1
                 }
             }
+        }
+        else if (returnHome == true){
+            ContentView()
         }
         else if (recordingFinished == true && test_recording(kana: last_kana, recording: recording)) {
             CorrectView(show_hiragana: $show_hiragana, recording: recording)

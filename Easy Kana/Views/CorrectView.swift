@@ -11,23 +11,43 @@ struct CorrectView: View {
     @Binding var show_hiragana: Bool
     @State var show_next: Bool = false
     var recording: String
+    @State var returnHome = false
     
     var body: some View {
  
-        if !(show_next) {
+        if (returnHome == true) {
+            ContentView()
+        }
+        
+        else if !(show_next) {
             VStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        self.returnHome = true
+                        self.show_next = true
+                    }) {
+                        Text("X")
+                            .font(.title)
+                            .foregroundColor(Color.gray)
+                            .padding(.horizontal)
+                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
+                            .padding(.top, 10)
+                    }
+                }
                 Spacer()
                 Text(last_kana.get_kana())
                     .font(.system(size: 100))
                     .multilineTextAlignment(.center)
                     .frame(height: 150)
                     .overlay(Circle().stroke(Color.green, lineWidth: 8))
+
                 Spacer()
                 Button(action: {
                     self.show_next = true
                 })
                 {
-                    Text(recording)
+                    Text("Show Next")
                         .font(.title)
                         .padding(.all)
                         .background(Color.green)
