@@ -10,6 +10,9 @@ import SwiftUI
 struct KanaView: View {
     @Binding var show_hiragana: Bool
     @State var answer = 0
+    @State private var recording = ""
+    private let speechRecognizer = SpeechRecognizer()
+    
     
     
     var body: some View {
@@ -59,6 +62,12 @@ struct KanaView: View {
                     }
                 }
             }
+            .onAppear{
+            speechRecognizer.record(to: $recording)
+                Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
+                    speechRecognizer.stopRecording()
+                }
+            }
         }
         else if (answer == 1) {
             CorrectView(show_hiragana: $show_hiragana)
@@ -67,6 +76,7 @@ struct KanaView: View {
             IncorrectView(show_hiragana: $show_hiragana)
         }
     }
+
 }
 
 struct KanaView_Previews: PreviewProvider {

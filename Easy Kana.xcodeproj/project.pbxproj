@@ -17,6 +17,7 @@
 		C32FC0FE260F5CFB0050D062 /* Kana.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FC0FD260F5CFB0050D062 /* Kana.swift */; };
 		C360ABF626100C8000989941 /* CorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C360ABF526100C8000989941 /* CorrectView.swift */; };
 		C360ABFB26100D4C00989941 /* IncorrectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C360ABFA26100D4C00989941 /* IncorrectView.swift */; };
+		C360AC00261011BF00989941 /* SpeechRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C360ABFF261011BF00989941 /* SpeechRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C32FC0FD260F5CFB0050D062 /* Kana.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Kana.swift; sourceTree = "<group>"; };
 		C360ABF526100C8000989941 /* CorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectView.swift; sourceTree = "<group>"; };
 		C360ABFA26100D4C00989941 /* IncorrectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncorrectView.swift; sourceTree = "<group>"; };
+		C360ABFF261011BF00989941 /* SpeechRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				C32FC0C4260F41BD0050D062 /* ContentView.swift */,
 				C32FC0F8260F54820050D062 /* KanaView.swift */,
 				C360ABFA26100D4C00989941 /* IncorrectView.swift */,
+				C360ABFF261011BF00989941 /* SpeechRecognizer.swift */,
 				C360ABF526100C8000989941 /* CorrectView.swift */,
 				C32FC0C6260F41BE0050D062 /* Assets.xcassets */,
 				C32FC0CB260F41BE0050D062 /* Info.plist */,
@@ -271,6 +274,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C360AC00261011BF00989941 /* SpeechRecognizer.swift in Sources */,
 				C32FC0FE260F5CFB0050D062 /* Kana.swift in Sources */,
 				C32FC0C5260F41BD0050D062 /* ContentView.swift in Sources */,
 				C32FC0F9260F54820050D062 /* KanaView.swift in Sources */,
