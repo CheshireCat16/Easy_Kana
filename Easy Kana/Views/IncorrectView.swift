@@ -41,7 +41,7 @@ struct IncorrectView: View {
                 }
                 Spacer()
                 Text(last_kana.get_kana())
-                    .font(.system(size: 100))
+                    .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .frame(height: 150)
                     .overlay(Rectangle().stroke(Color.red, lineWidth: 8))
@@ -50,7 +50,7 @@ struct IncorrectView: View {
                     self.show_next = true
                 })
                 {
-                    Text("Next")
+                    Text(recording)
                         .font(.title)
                         .padding(.all)
                         .background(Color.red)

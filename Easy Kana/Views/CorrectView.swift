@@ -34,7 +34,7 @@ struct CorrectView: View {
                 }
                 Spacer()
                 Text(last_kana.get_kana())
-                    .font(.system(size: 100))
+                    .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .frame(height: 150)
                     .overlay(Circle().stroke(Color.green, lineWidth: 8))

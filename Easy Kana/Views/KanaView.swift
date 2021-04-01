@@ -43,13 +43,13 @@ struct KanaView: View {
                 Spacer()
                 if show_hiragana {
                     Text(get_random_hiragana().get_kana())
-                        .font(.system(size: 100))
+                        .font(.largeTitle)
                         .multilineTextAlignment(.center)
                         .frame(height: 150)
                 }
                 else{
                     Text(get_random_katakana().get_kana())
-                        .font(.system(size: 100))
+                        .font(.largeTitle)
                         .multilineTextAlignment(.center)
                         .frame(height: 150)
                         .scaledToFill()
