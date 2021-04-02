@@ -28,34 +28,34 @@ struct ContentView: View {
                 Text("What would you like to study?")
                         .font(.title)
                         .padding(.vertical)
-                NavigationView {
-                
-                        Button(action: {
-                        self.showMainView = false
-                        self.show_hiragana = true
-                    })
-                    {
-                        Text("ひらがな - Hiragana")
-                            .font(.title)
-                            .padding(.all)
-                            .background(Color.red)
-                            .foregroundColor(.black)
-                            .padding(10)
-                            .cornerRadius(40)
-                    }
+
+            
                     Button(action: {
-                        self.showMainView = false
-                        self.show_hiragana = false
-                    }){
-                        Text("カタカナ - Katakana")
-                            .font(.title)
-                            .padding(.all)
-                            .background(Color.red)
-                            .foregroundColor(.black)
-                            .padding(10)
-                            .cornerRadius(40)
-                    }
+                    self.showMainView = false
+                    self.show_hiragana = true
+                })
+                {
+                    Text("ひらがな - Hiragana")
+                        .font(.title)
+                        .padding(.all)
+                        .background(Color.red)
+                        .foregroundColor(.black)
+                        .padding(10)
+                        .cornerRadius(40)
                 }
+                Button(action: {
+                    self.showMainView = false
+                    self.show_hiragana = false
+                }){
+                    Text("カタカナ - Katakana")
+                        .font(.title)
+                        .padding(.all)
+                        .background(Color.red)
+                        .foregroundColor(.black)
+                        .padding(10)
+                        .cornerRadius(40)
+                }
+                
             }
             .padding(.bottom)
         }
