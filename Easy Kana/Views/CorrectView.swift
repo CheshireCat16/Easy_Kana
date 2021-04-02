@@ -19,18 +19,17 @@ struct CorrectView: View {
         else if !(show_next) {
             VStack {
                 HStack {
-                    Spacer()
                     Button(action: {
                         self.returnHome = true
                         self.show_next = true
                     }) {
-                        Text("X")
+                        Text("◁")
                             .font(.title)
                             .foregroundColor(Color.gray)
                             .padding(.horizontal)
-                            .overlay(Circle().stroke(Color.gray, lineWidth: 3))
-                            .padding(.top, 10)
+                            .padding([.top, .leading], 10)
                     }
+                    Spacer()
                 }
                 Spacer()
                 Text(last_kana.get_kana())
