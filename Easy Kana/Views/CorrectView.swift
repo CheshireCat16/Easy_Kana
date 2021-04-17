@@ -9,6 +9,7 @@ struct CorrectView: View {
     @State var show_next: Bool = false
     var recording: String
     @State var returnHome = false
+    let next_kana: Kana
     
     var body: some View {
  
@@ -19,7 +20,7 @@ struct CorrectView: View {
         else if !(show_next) {
             VStack {
                 Spacer()
-                Text(last_kana.get_kana())
+                Text(next_kana.get_kana())
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .frame(height: 150)
@@ -40,15 +41,17 @@ struct CorrectView: View {
                 }
             }
         }
-        else {
-            KanaView(show_hiragana: $show_hiragana)
+        else if (show_hiragana) {
+            KanaView(show_hiragana: $show_hiragana, next_kana: get_random_hiragana())
+        } else {
+            KanaView(show_hiragana: $show_hiragana, next_kana: get_random_katakana())
         }
     }
 }
 
 struct CorrectView_Previews: PreviewProvider {
     static var previews: some View {
-        CorrectView(show_hiragana: .constant(true), recording: "Yes")
+        CorrectView(show_hiragana: .constant(true), recording: "Yes", next_kana: get_random_hiragana())
     }
 }
 

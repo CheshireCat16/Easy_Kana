@@ -3,9 +3,6 @@
 //
 //  IncorrectView.swift
 //  Easy Kana
-//
-//  Created by administrator on 3/27/21.
-//
 
 import SwiftUI
 import AVFoundation
@@ -15,6 +12,7 @@ struct IncorrectView: View {
     @State var show_next: Bool = false
     @State var returnHome = false
     var recording: String
+    let next_kana: Kana
 
     
     var body: some View {
@@ -26,7 +24,7 @@ struct IncorrectView: View {
         else if !(show_next) {
             VStack {
                 Spacer()
-                Text(last_kana.get_kana())
+                Text(next_kana.get_kana())
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .frame(height: 150)
@@ -53,14 +51,17 @@ struct IncorrectView: View {
                 synthesizer.speak(correctPron)
             }
         }
+        else if (show_hiragana) {
+            KanaView(show_hiragana: $show_hiragana, next_kana: get_random_hiragana())
+        }
         else {
-            KanaView(show_hiragana: $show_hiragana)
+            KanaView(show_hiragana: $show_hiragana, next_kana: get_random_katakana())
         }
     }
 }
 
 struct IncorrectView_Previews: PreviewProvider {
     static var previews: some View {
-        IncorrectView(show_hiragana: .constant(true), recording: "Next")
+        IncorrectView(show_hiragana: .constant(true), recording: "Next", next_kana: get_random_hiragana())
     }
 }

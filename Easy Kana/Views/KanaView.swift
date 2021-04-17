@@ -14,28 +14,22 @@ struct KanaView: View {
     @State private var recording = ""
     @State private var recordingFinished: Bool = false
     private let speechRecognizer = SpeechRecognizer()
+    let next_kana: Kana
     @State var recordingText = "Preparing..."
     @State var recordingColor = Color.red
-    @State var returnHome = false
     
     
     var body: some View {
         if (answer == 0) {
             VStack {
                 Spacer()
-                if show_hiragana {
-                    Text(get_random_hiragana().get_kana())
-                        .font(.largeTitle)
-                        .multilineTextAlignment(.center)
-                        .frame(height: 150)
-                }
-                else{
-                    Text(get_random_katakana().get_kana())
-                        .font(.largeTitle)
-                        .multilineTextAlignment(.center)
-                        .frame(height: 150)
-                        .scaledToFill()
-                }
+
+                Text(next_kana.get_kana())
+                    .font(.largeTitle)
+                    .multilineTextAlignment(.center)
+                    .frame(height: 150)
+
+                
                 Spacer()
                 HStack {
                     Text(recordingText)
@@ -63,14 +57,11 @@ struct KanaView: View {
                 }
             }
         }
-        else if (returnHome == true){
-            ContentView()
-        }
-        else if (recordingFinished == true && test_recording(kana: last_kana, recording: recording)) {
-            CorrectView(show_hiragana: $show_hiragana, recording: recording)
+        else if (recordingFinished == true && test_recording(kana: next_kana, recording: recording)) {
+            CorrectView(show_hiragana: $show_hiragana, recording: recording, next_kana: next_kana)
         }
         else if (recordingFinished == true) {
-            IncorrectView(show_hiragana: $show_hiragana, recording: recording)
+            IncorrectView(show_hiragana: $show_hiragana, recording: recording, next_kana: next_kana)
         }
     }
 
@@ -80,8 +71,8 @@ struct KanaView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            KanaView(show_hiragana: .constant(true))
-            KanaView(show_hiragana: .constant(false))
+            KanaView(show_hiragana: .constant(true), next_kana: get_random_hiragana())
+            KanaView(show_hiragana: .constant(false), next_kana: get_random_katakana())
         }
     }
 }
