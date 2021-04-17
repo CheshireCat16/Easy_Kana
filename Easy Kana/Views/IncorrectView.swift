@@ -10,24 +10,19 @@ import AVFoundation
 struct IncorrectView: View {
     @Binding var show_hiragana: Bool
     @State var show_next: Bool = false
-    @State var returnHome = false
     var recording: String
     let next_kana: Kana
+    @Environment(\.presentationMode) private var presentation
 
     
     var body: some View {
- 
-        if (returnHome == true) {
-            ContentView()
-        }
-        
-        else if !(show_next) {
+        if !(show_next) {
             VStack {
                 Spacer()
                 Text(next_kana.get_kana())
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
-                    .frame(height: 150)
+                    .padding(.all)
                     .overlay(Rectangle().stroke(Color.red, lineWidth: 8))
                 Spacer()
                 Button(action: {
@@ -43,6 +38,12 @@ struct IncorrectView: View {
                         .cornerRadius(40)
                 }
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: Button(action: { presentation.wrappedValue.dismiss() }) { Image(systemName: "chevron.left")
+                .padding(.leading)
+                .font(.system(.title2))
+                .accentColor(.gray)
+            })
             .onAppear {
                 let correctPron = AVSpeechUtterance(string: last_kana.get_kana())
                 correctPron.voice = AVSpeechSynthesisVoice(language: "ja-JP")

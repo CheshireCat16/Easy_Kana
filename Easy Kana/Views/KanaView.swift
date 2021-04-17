@@ -10,17 +10,14 @@ import AVFoundation
 
 struct KanaView: View {
     @Binding var show_hiragana: Bool
-    @State var answer = 0
     @State private var recording = ""
     @State private var recordingFinished: Bool = false
     private let speechRecognizer = SpeechRecognizer()
     let next_kana: Kana
-    @State var recordingText = "Preparing..."
-    @State var recordingColor = Color.red
-    
+    @Environment(\.presentationMode) private var presentation
     
     var body: some View {
-        if (answer == 0) {
+        if !(recordingFinished) {
             VStack {
                 Spacer()
 
@@ -32,29 +29,31 @@ struct KanaView: View {
                 
                 Spacer()
                 HStack {
-                    Text(recordingText)
+                    Text("Recording")
                         .font(.title)
                         .padding(.all)
-                        .background(recordingColor)
+                        .background(Color.green)
                         .foregroundColor(.black)
                         .padding(10)
                         .cornerRadius(40)
-                        .overlay(RoundedRectangle(cornerRadius: 40.0).stroke(recordingColor, lineWidth: 6))
+                        .overlay(RoundedRectangle(cornerRadius: 40.0).stroke(Color.green, lineWidth: 6))
                 }
 
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: Button(action: { presentation.wrappedValue.dismiss() }) { Image(systemName: "chevron.left")
+                .padding(.leading)
+                .font(.system(.title2))                .accentColor(.gray)
+            })
             .onAppear{
                 speechRecognizer.record(to: $recording)
-                recordingColor = Color.green
-                recordingText = "Recording"
                 Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
                     speechRecognizer.stopRecording()
                     recordingFinished = true
-                    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { timer in
-                        speechRecognizer.stopRecording()
-                    }
-                    self.answer = 1
                 }
+            }
+            .onDisappear{
+                speechRecognizer.stopRecording()
             }
         }
         else if (recordingFinished == true && test_recording(kana: next_kana, recording: recording)) {
@@ -63,7 +62,9 @@ struct KanaView: View {
         else if (recordingFinished == true) {
             IncorrectView(show_hiragana: $show_hiragana, recording: recording, next_kana: next_kana)
         }
+
     }
+    
 
 }
 

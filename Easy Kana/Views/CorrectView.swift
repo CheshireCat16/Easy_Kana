@@ -8,23 +8,18 @@ struct CorrectView: View {
     @Binding var show_hiragana: Bool
     @State var show_next: Bool = false
     var recording: String
-    @State var returnHome = false
     let next_kana: Kana
+    @Environment(\.presentationMode) private var presentation
     
     var body: some View {
- 
-        if (returnHome == true) {
-            ContentView()
-        }
-        
-        else if !(show_next) {
+        if !(show_next) {
             VStack {
                 Spacer()
                 Text(next_kana.get_kana())
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
-                    .frame(height: 150)
-                    .overlay(Circle().stroke(Color.green, lineWidth: 8))
+                    .padding(.all)
+                    .overlay(Rectangle().stroke(Color.green, lineWidth: 8))
 
                 Spacer()
                 Button(action: {
@@ -40,6 +35,12 @@ struct CorrectView: View {
                         .cornerRadius(40)
                 }
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: Button(action: { presentation.wrappedValue.dismiss() }) { Image(systemName: "chevron.left")
+                .padding(.leading)
+                .font(.system(.title2))
+                .accentColor(.gray)
+            })
         }
         else if (show_hiragana) {
             KanaView(show_hiragana: $show_hiragana, next_kana: get_random_hiragana())
