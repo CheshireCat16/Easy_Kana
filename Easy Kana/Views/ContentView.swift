@@ -29,32 +29,29 @@ struct ContentView: View {
                         .font(.title)
                         .padding(.vertical)
 
-            
-                    Button(action: {
-                    self.showMainView = false
-                    self.show_hiragana = true
-                })
-                {
-                    Text("ひらがな - Hiragana")
-                        .font(.title)
-                        .padding(.all)
-                        .background(Color.red)
-                        .foregroundColor(.black)
-                        .padding(10)
-                        .cornerRadius(40)
-                }
-                Button(action: {
-                    self.showMainView = false
-                    self.show_hiragana = false
-                }){
-                    Text("カタカナ - Katakana")
-                        .font(.title)
-                        .padding(.all)
-                        .background(Color.red)
-                        .foregroundColor(.black)
-                        .padding(10)
-                        .cornerRadius(40)
-                }
+                NavigationLink(
+                    destination: KanaView(show_hiragana: .constant(true)),
+                    label: {
+                        Text("ひらがな - Hiragana")
+                            .font(.title)
+                            .padding(.all)
+                            .background(Color.red)
+                            .foregroundColor(.black)
+                            .padding(10)
+                            .cornerRadius(40)
+                    })
+                
+                NavigationLink(
+                    destination: KanaView(show_hiragana: .constant(false)),
+                    label: {
+                        Text("カタカナ - Katakana")
+                            .font(.title)
+                            .padding(.all)
+                            .background(Color.red)
+                            .foregroundColor(.black)
+                            .padding(10)
+                            .cornerRadius(40)
+                    })
                 
             }
             .padding(.bottom)
@@ -70,6 +67,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        NavigationView {
+            ContentView()
+        }
     }
 }

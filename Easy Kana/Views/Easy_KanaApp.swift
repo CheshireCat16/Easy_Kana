@@ -9,7 +9,10 @@ import SwiftUI
 struct Easy_KanaApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                ContentView()
+            }
+
         }
     }
 }

@@ -25,22 +25,6 @@ struct KanaView: View {
     var body: some View {
         if (answer == 0) {
             VStack {
-                HStack {
-                    
-                    Button(action: {
-                        self.returnHome = true
-                        self.answer = 5
-                    }) {
-                        Text("◁")
-                            .font(.title)
-                            .foregroundColor(Color.gray)
-                            .padding(.horizontal)
-                            .padding([.top, .leading], 10)
-                    }
-                    Spacer()
-                }
-
-
                 Spacer()
                 if show_hiragana {
                     Text(get_random_hiragana().get_kana())
