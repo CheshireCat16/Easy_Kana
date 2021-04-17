@@ -25,19 +25,6 @@ struct IncorrectView: View {
         
         else if !(show_next) {
             VStack {
-                HStack {
-                    Button(action: {
-                        self.returnHome = true
-                        self.show_next = true
-                    }) {
-                        Text("◁")
-                            .font(.title)
-                            .foregroundColor(Color.gray)
-                            .padding(.horizontal)
-                            .padding([.top, .leading], 10)
-                    }
-                    Spacer()
-                }
                 Spacer()
                 Text(last_kana.get_kana())
                     .font(.largeTitle)

@@ -4,9 +4,6 @@
 //
 //  KanaView.swift
 //  Easy Kana
-//
-//  Created by  John Cheshire on 3/27/21.
-//
 
 import SwiftUI
 import AVFoundation
