@@ -7,8 +7,9 @@ import SwiftUI
 struct CorrectView: View {
     @Binding var show_hiragana: Bool
     @State var show_next: Bool = false
-    var recording: String
+    @Binding var recording: String
     @Binding var next_kana: Kana
+    @Binding var recordingFinished: Bool
     @Environment(\.presentationMode) private var presentation
     
     var body: some View {
@@ -23,12 +24,13 @@ struct CorrectView: View {
 
                 Spacer()
                 Button(action: {
-                    if  (show_hiragana) {
+                    if (show_hiragana) {
                         next_kana = get_random_hiragana()
                     } else {
                         next_kana = get_random_katakana()
                     }
-                    
+                    recording = ""
+                    recordingFinished = false
                     self.show_next = true
                 })
                 {
@@ -56,7 +58,7 @@ struct CorrectView: View {
 
 struct CorrectView_Previews: PreviewProvider {
     static var previews: some View {
-        CorrectView(show_hiragana: .constant(true), recording: "Yes", next_kana: .constant(get_random_hiragana()))
+        CorrectView(show_hiragana: .constant(true), recording: .constant("Yes"), next_kana: .constant(get_random_hiragana()), recordingFinished: .constant(true))
     }
 }
 

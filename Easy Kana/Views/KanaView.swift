@@ -10,8 +10,8 @@ import AVFoundation
 
 struct KanaView: View {
     @Binding var show_hiragana: Bool
-    @State private var recording = ""
-    @State private var recordingFinished: Bool = false
+    @State var recording = ""
+    @State var recordingFinished = false
     private let speechRecognizer = SpeechRecognizer()
     @Binding var next_kana: Kana
     @Environment(\.presentationMode) private var presentation
@@ -57,10 +57,10 @@ struct KanaView: View {
             }
         }
         else if (recordingFinished == true && test_recording(kana: next_kana, recording: recording)) {
-            CorrectView(show_hiragana: $show_hiragana, recording: recording, next_kana: $next_kana)
+            CorrectView(show_hiragana: $show_hiragana, recording: $recording, next_kana: $next_kana, recordingFinished: $recordingFinished)
         }
         else if (recordingFinished == true) {
-            IncorrectView(show_hiragana: $show_hiragana, recording: recording, next_kana: $next_kana)
+            IncorrectView(show_hiragana: $show_hiragana, recording: $recording, next_kana: $next_kana, recordingFinished: $recordingFinished)
         }
 
     }

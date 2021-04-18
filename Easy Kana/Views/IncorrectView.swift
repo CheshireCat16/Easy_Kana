@@ -10,8 +10,9 @@ import AVFoundation
 struct IncorrectView: View {
     @Binding var show_hiragana: Bool
     @State var show_next: Bool = false
-    var recording: String
+    @Binding var recording: String
     @Binding var next_kana: Kana
+    @Binding var recordingFinished: Bool
     @Environment(\.presentationMode) private var presentation
 
     
@@ -28,10 +29,11 @@ struct IncorrectView: View {
                 Button(action: {
                     if (show_hiragana) {
                         next_kana = get_random_hiragana()
-                    }
-                    else {
+                    } else {
                         next_kana = get_random_katakana()
                     }
+                    recording = ""
+                    recordingFinished = false
                     self.show_next = true
                 })
                 {
@@ -65,6 +67,6 @@ struct IncorrectView: View {
 
 struct IncorrectView_Previews: PreviewProvider {
     static var previews: some View {
-        IncorrectView(show_hiragana: .constant(true), recording: "Next", next_kana: .constant(get_random_hiragana()))
+        IncorrectView(show_hiragana: .constant(true), recording: .constant("Next"), next_kana: .constant(get_random_hiragana()), recordingFinished: .constant(true))
     }
 }

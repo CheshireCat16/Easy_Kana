@@ -24,7 +24,7 @@ struct ContentView: View {
                     .padding(.vertical)
 
             NavigationLink(
-                destination: KanaView(show_hiragana: .constant(true), next_kana: $next_kana),
+                destination: KanaView(show_hiragana: .constant(true),  next_kana: $next_kana),
                 label: {
                     Text("ひらがな - Hiragana")
                         .font(.title)
