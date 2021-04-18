@@ -50,9 +50,9 @@ struct ContentView: View {
                 })
         .padding(.bottom)
         }
-        .navigationBarItems(trailing: Button(action: { presentation.wrappedValue.dismiss() }) { Image(systemName: "gearshape")
+        .navigationBarItems(trailing: Button(action: {}) { Image(systemName: "gearshape")
             .padding(.trailing)
-            .font(.system(.title2))
+            .font(.system(.title))
             .accentColor(.gray)
         })
     }

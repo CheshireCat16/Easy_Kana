@@ -12,6 +12,7 @@ struct KanaView: View {
     @Binding var show_hiragana: Bool
     @State var recording = ""
     @State var recordingFinished = false
+    private let recordTime = 3.0
     private let speechRecognizer = SpeechRecognizer()
     @State var next_kana: Kana = get_random_hiragana()
     @Environment(\.presentationMode) private var presentation
@@ -52,7 +53,7 @@ struct KanaView: View {
                     next_kana = get_random_katakana()
                 }
                 speechRecognizer.record(to: $recording)
-                Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
+                Timer.scheduledTimer(withTimeInterval: recordTime, repeats: false) { timer in
                     speechRecognizer.stopRecording()
                     recordingFinished = true
                 }

@@ -14,17 +14,28 @@ struct IncorrectView: View {
     @Binding var next_kana: Kana
     @Binding var recordingFinished: Bool
     @Environment(\.presentationMode) private var presentation
+    @Environment(\.colorScheme) var colorScheme
 
     
     var body: some View {
         if !(show_next) {
             VStack {
                 Spacer()
+                Button(action: {
+                    let correctPron = AVSpeechUtterance(string: next_kana.get_pron())
+                    correctPron.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+                    // correctPron.rate = 0.08
+                    let synthesizer = AVSpeechSynthesizer()
+                    synthesizer.speak(correctPron)
+                }, label: {
                 Text(next_kana.get_kana())
                     .font(.largeTitle)
+                    .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                     .multilineTextAlignment(.center)
                     .padding(.all)
-                    .overlay(Rectangle().stroke(Color.red, lineWidth: 8))
+                    .overlay(RoundedRectangle(cornerRadius: 2.0).stroke(Color.red, lineWidth: 8))
+                    
+                })
                 Spacer()
                 Button(action: {
                     recording = ""
@@ -32,7 +43,7 @@ struct IncorrectView: View {
                     self.show_next = true
                 })
                 {
-                    Text(recording)
+                    Text("Incorrect")
                         .font(.title)
                         .padding(.all)
                         .background(Color.red)
@@ -48,7 +59,7 @@ struct IncorrectView: View {
                 .accentColor(.gray)
             })
             .onAppear {
-                let correctPron = AVSpeechUtterance(string: last_kana.get_kana())
+                let correctPron = AVSpeechUtterance(string: next_kana.get_pron())
                 correctPron.voice = AVSpeechSynthesisVoice(language: "ja-JP")
                 // correctPron.rate = 0.08
                 let synthesizer = AVSpeechSynthesizer()
