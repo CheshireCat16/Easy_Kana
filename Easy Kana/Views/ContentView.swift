@@ -7,6 +7,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    var next_hiragana = get_random_hiragana()
+    var next_katakana = get_random_katakana()
     var body: some View {
         VStack(alignment: .center) {
             Text("Welcome to Easy Kana")
