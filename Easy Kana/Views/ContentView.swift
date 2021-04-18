@@ -8,6 +8,8 @@ import SwiftUI
 
 struct ContentView: View {
     @Binding var next_kana: Kana
+    @Environment(\.presentationMode) private var presentation
+    
     var body: some View {
         VStack(alignment: .center) {
             Text("Welcome to Easy Kana")
@@ -48,6 +50,11 @@ struct ContentView: View {
                 })
         .padding(.bottom)
         }
+        .navigationBarItems(trailing: Button(action: { presentation.wrappedValue.dismiss() }) { Image(systemName: "gearshape")
+            .padding(.trailing)
+            .font(.system(.title2))
+            .accentColor(.gray)
+        })
     }
 
 }   
