@@ -13,7 +13,7 @@ struct KanaView: View {
     @State private var recording = ""
     @State private var recordingFinished: Bool = false
     private let speechRecognizer = SpeechRecognizer()
-    let next_kana: Kana
+    @Binding var next_kana: Kana
     @Environment(\.presentationMode) private var presentation
     
     var body: some View {
@@ -57,10 +57,10 @@ struct KanaView: View {
             }
         }
         else if (recordingFinished == true && test_recording(kana: next_kana, recording: recording)) {
-            CorrectView(show_hiragana: $show_hiragana, recording: recording, next_kana: next_kana)
+            CorrectView(show_hiragana: $show_hiragana, recording: recording, next_kana: $next_kana)
         }
         else if (recordingFinished == true) {
-            IncorrectView(show_hiragana: $show_hiragana, recording: recording, next_kana: next_kana)
+            IncorrectView(show_hiragana: $show_hiragana, recording: recording, next_kana: $next_kana)
         }
 
     }
@@ -72,8 +72,8 @@ struct KanaView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            KanaView(show_hiragana: .constant(true), next_kana: get_random_hiragana())
-            KanaView(show_hiragana: .constant(false), next_kana: get_random_katakana())
+            KanaView(show_hiragana: .constant(true), next_kana: .constant(get_random_hiragana()))
+            KanaView(show_hiragana: .constant(false), next_kana: .constant(get_random_katakana()))
         }
     }
 }

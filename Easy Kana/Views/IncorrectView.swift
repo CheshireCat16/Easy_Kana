@@ -11,7 +11,7 @@ struct IncorrectView: View {
     @Binding var show_hiragana: Bool
     @State var show_next: Bool = false
     var recording: String
-    let next_kana: Kana
+    @Binding var next_kana: Kana
     @Environment(\.presentationMode) private var presentation
 
     
@@ -26,6 +26,12 @@ struct IncorrectView: View {
                     .overlay(Rectangle().stroke(Color.red, lineWidth: 8))
                 Spacer()
                 Button(action: {
+                    if (show_hiragana) {
+                        next_kana = get_random_hiragana()
+                    }
+                    else {
+                        next_kana = get_random_katakana()
+                    }
                     self.show_next = true
                 })
                 {
@@ -51,18 +57,14 @@ struct IncorrectView: View {
                 let synthesizer = AVSpeechSynthesizer()
                 synthesizer.speak(correctPron)
             }
-        }
-        else if (show_hiragana) {
-            KanaView(show_hiragana: $show_hiragana, next_kana: get_random_hiragana())
-        }
-        else {
-            KanaView(show_hiragana: $show_hiragana, next_kana: get_random_katakana())
+        } else {
+            KanaView(show_hiragana: $show_hiragana, next_kana: $next_kana)
         }
     }
 }
 
 struct IncorrectView_Previews: PreviewProvider {
     static var previews: some View {
-        IncorrectView(show_hiragana: .constant(true), recording: "Next", next_kana: get_random_hiragana())
+        IncorrectView(show_hiragana: .constant(true), recording: "Next", next_kana: .constant(get_random_hiragana()))
     }
 }

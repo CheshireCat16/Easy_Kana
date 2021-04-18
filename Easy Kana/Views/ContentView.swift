@@ -7,8 +7,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    var next_hiragana = get_random_hiragana()
-    var next_katakana = get_random_katakana()
+    @Binding var next_kana: Kana
     var body: some View {
         VStack(alignment: .center) {
             Text("Welcome to Easy Kana")
@@ -25,7 +24,7 @@ struct ContentView: View {
                     .padding(.vertical)
 
             NavigationLink(
-                destination: KanaView(show_hiragana: .constant(true), next_kana: get_random_hiragana()),
+                destination: KanaView(show_hiragana: .constant(true), next_kana: $next_kana),
                 label: {
                     Text("ひらがな - Hiragana")
                         .font(.title)
@@ -37,7 +36,7 @@ struct ContentView: View {
                 })
             
             NavigationLink(
-                destination: KanaView(show_hiragana: .constant(false), next_kana: get_random_katakana()),
+                destination: KanaView(show_hiragana: .constant(false), next_kana: $next_kana),
                 label: {
                     Text("カタカナ - Katakana")
                         .font(.title)
@@ -58,7 +57,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            ContentView()
+            ContentView(next_kana: .constant(get_random_hiragana()))
         }
     }
 }
