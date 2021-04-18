@@ -27,11 +27,6 @@ struct IncorrectView: View {
                     .overlay(Rectangle().stroke(Color.red, lineWidth: 8))
                 Spacer()
                 Button(action: {
-                    if (show_hiragana) {
-                        next_kana = get_random_hiragana()
-                    } else {
-                        next_kana = get_random_katakana()
-                    }
                     recording = ""
                     recordingFinished = false
                     self.show_next = true
@@ -60,7 +55,7 @@ struct IncorrectView: View {
                 synthesizer.speak(correctPron)
             }
         } else {
-            KanaView(show_hiragana: $show_hiragana, next_kana: $next_kana)
+            KanaView(show_hiragana: $show_hiragana)
         }
     }
 }

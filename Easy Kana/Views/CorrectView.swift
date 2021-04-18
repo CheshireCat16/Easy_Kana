@@ -24,11 +24,6 @@ struct CorrectView: View {
 
                 Spacer()
                 Button(action: {
-                    if (show_hiragana) {
-                        next_kana = get_random_hiragana()
-                    } else {
-                        next_kana = get_random_katakana()
-                    }
                     recording = ""
                     recordingFinished = false
                     self.show_next = true
@@ -51,7 +46,7 @@ struct CorrectView: View {
             })
         }
         else {
-            KanaView(show_hiragana: $show_hiragana, next_kana: $next_kana)
+            KanaView(show_hiragana: $show_hiragana)
         }
     }
 }

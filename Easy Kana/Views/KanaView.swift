@@ -13,7 +13,7 @@ struct KanaView: View {
     @State var recording = ""
     @State var recordingFinished = false
     private let speechRecognizer = SpeechRecognizer()
-    @Binding var next_kana: Kana
+    @State var next_kana: Kana = get_random_hiragana()
     @Environment(\.presentationMode) private var presentation
     
     var body: some View {
@@ -46,6 +46,11 @@ struct KanaView: View {
                 .font(.system(.title2))                .accentColor(.gray)
             })
             .onAppear{
+                if (show_hiragana) {
+                    next_kana = get_random_hiragana()
+                } else {
+                    next_kana = get_random_katakana()
+                }
                 speechRecognizer.record(to: $recording)
                 Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
                     speechRecognizer.stopRecording()
@@ -72,8 +77,8 @@ struct KanaView_Previews: PreviewProvider {
 
     static var previews: some View {
         Group {
-            KanaView(show_hiragana: .constant(true), next_kana: .constant(get_random_hiragana()))
-            KanaView(show_hiragana: .constant(false), next_kana: .constant(get_random_katakana()))
+            KanaView(show_hiragana: .constant(true))
+            KanaView(show_hiragana: .constant(false))
         }
     }
 }

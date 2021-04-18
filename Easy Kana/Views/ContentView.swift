@@ -24,7 +24,7 @@ struct ContentView: View {
                     .padding(.vertical)
 
             NavigationLink(
-                destination: KanaView(show_hiragana: .constant(true),  next_kana: $next_kana),
+                destination: KanaView(show_hiragana: .constant(true)),
                 label: {
                     Text("ひらがな - Hiragana")
                         .font(.title)
@@ -36,7 +36,7 @@ struct ContentView: View {
                 })
             
             NavigationLink(
-                destination: KanaView(show_hiragana: .constant(false), next_kana: $next_kana),
+                destination: KanaView(show_hiragana: .constant(false)),
                 label: {
                     Text("カタカナ - Katakana")
                         .font(.title)
@@ -46,9 +46,8 @@ struct ContentView: View {
                         .padding(10)
                         .cornerRadius(40)
                 })
-            
-        }
         .padding(.bottom)
+        }
     }
 
 }   
