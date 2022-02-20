@@ -1,6 +1,7 @@
 # This is the Easy Kana App
 
 [![Easy Kana Demo](https://img.youtube.com/vi/pQY_CtqvNAg/0.jpg)](https://youtu.be/pQY_CtqvNAg)
+
 Click the image above for a demo of Easy Kana's functionality.
 
 ## Inspiration
