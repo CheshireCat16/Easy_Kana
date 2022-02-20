@@ -1,6 +1,7 @@
 # This is the Easy Kana App
 
 [![Easy Kana Demo](https://img.youtube.com/vi/pQY_CtqvNAg/0.jpg)](https://youtu.be/pQY_CtqvNAg)
+Click the image above for a demo of Easy Kana's functionality.
 
 ## Inspiration
 My children are currently learning to read Japanese, but they are not ready for traditional flashcards where the app shows you the flashcard, then the associated pronunciation, and then you choose whether or not you remember the flashcard. They need a way to interact with the app like they would a teacher. The teacher shows them a card. They say the pronunciation, and then the teacher gives them feedback on whether they were correct.
